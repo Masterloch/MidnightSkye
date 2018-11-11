@@ -8,6 +8,7 @@
 
 $router->define([
     '' => 'controllers/index.php',
+    'home' => 'controllers/index.php',
     'about' => 'controllers/about.php',
     'store' => 'controllers/store.php',
     'schedule' => 'controllers/schedule.php',

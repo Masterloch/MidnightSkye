@@ -3,8 +3,11 @@
 require 'core/router/router.php';
 $router = new Router();
 require 'core/router/routes.php';
+require 'core/router/request.php';
+$request = new Request();
 
-$uri = trim($_SERVER['REQUEST_URI'], '/');
+$uri = $request->uri();
+var_dump($uri);
 $uri = $router->direct($uri);
 
 
