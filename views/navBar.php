@@ -9,14 +9,21 @@
         .vertical-divider{
              border-right: 2px solid rgba(192,192,192,0.2);
         }
+        .sticky.is-sticky {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
         <div class="container">
-            <h1>Marlene McDonald</h1>
+            <h1 class="d-xs-none">Marlene McDonald</h1>
         </div>
-        <!-- A grey horizontal navbar that becomes vertical on small screens -->
-        <nav class="navbar navbar-light bg-light navbar-expand-sm" id="myHeader">
+        <nav class="navbar navbar-light bg-light navbar-expand-sm" data-toggle="sticky-onscroll">
             <div class="container">
                 <ul class="navbar-nav">
                     <div class="navbar-header hidden-sm-down float-right">
@@ -45,5 +52,41 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function() {
+                //
+                // JQuery for sticky navbar
+                //
+                // https://bootbites.com/articles/freebie-sticky-bootstrap-navbar-scroll-bootstrap-4/ 
+                var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
+                    var stickyHeight = sticky.outerHeight();
+                    var stickyTop = stickyWrapper.offset().top;
+                    if (scrollElement.scrollTop() >= stickyTop){
+                        stickyWrapper.height(stickyHeight);
+                        sticky.addClass("is-sticky");
+                    }
+                    else{
+                        sticky.removeClass("is-sticky");
+                        stickyWrapper.height('auto');
+                    }
+                };
+                
+                // Find all data-toggle="sticky-onscroll" elements
+                $('[data-toggle="sticky-onscroll"]').each(function() {
+                    var sticky = $(this);
+                    var stickyWrapper = $('<div>').addClass('sticky-wrapper');
+                    sticky.before(stickyWrapper);
+                    sticky.addClass('sticky');
+                    
+                    //Scroll & resize events
+                    $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function() {
+                        stickyToggle(sticky, stickyWrapper, $(this));
+                    });
+                    
+                    // On page load
+                    stickyToggle(sticky, stickyWrapper, $(window));
+                });
+            });
+        </script>
     </body>
 </html>

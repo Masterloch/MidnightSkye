@@ -1,15 +1,18 @@
 <?php
 
+require 'vendor/autoload.php';
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
 require 'core/router/router.php';
 $router = new Router();
+
 require 'core/router/routes.php';
 require 'core/router/request.php';
 $request = new Request();
 
 $uri = $request->uri();
-var_dump($uri);
 $uri = $router->direct($uri);
-
 
 if ($uri['type'] == 'image') {
     require $uri['path'];

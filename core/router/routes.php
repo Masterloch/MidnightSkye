@@ -14,4 +14,5 @@ $router->define([
     'schedule' => 'controllers/schedule.php',
     'contact' => 'controllers/contact.php',
     'gallery' => 'controllers/gallery.php',
+    'store/product' => 'controllers/product.php'
 ]);
