@@ -35,9 +35,9 @@
                           Shop For Jewelery
                         </a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="/store?type=Necklace">Necklaces</a>
-                          <a class="dropdown-item" href="/store?type=Bracelet">Bracelets</a>
-                          <a class="dropdown-item" href="/store?type=Earrings">Earrings</a>
+                          <a class="dropdown-item" href="/store?type=2">Necklaces</a>
+                          <a class="dropdown-item" href="/store?type=1">Bracelets</a>
+                          <a class="dropdown-item" href="/store?type=3">Earrings</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="/store?type=Atlantean">Atlantean Talisman Collection</a>
                           <a class="dropdown-item" href="/store?type=Mermaids">Mermaids & Goddesses</a>

@@ -1,9 +1,9 @@
 <?php
-
 require 'vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
+require 'core/database/database.php';
 require 'core/router/router.php';
 $router = new Router();
 
