@@ -2,13 +2,13 @@
 
 $productID = $_GET['productID'];
 
-singleProductToJSON($productID);
+
+singleProductToJSON($pdo->getSingleProduct($productID));
 
 require 'views/product.php';
 
-
-function singleProductToJSON($productID) {
+function singleProductToJSON($product) {
     echo "<script>";
-    echo "var product = " . json_encode($product) . "\n";
+    echo "var product = " . json_encode($product[0]) . "\n";
     echo "</script>";
 }

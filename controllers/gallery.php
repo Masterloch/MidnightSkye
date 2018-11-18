@@ -5,43 +5,37 @@
 // foreach necklace product, echo into javascript necklace_array
 // foreach earring product, echo into javascript earring_array
 
-$products = $pdo->getProducts();
-braceletArray($products);
-necklaceArray($products);
-earringArray($products);
+// $products = $pdo->getAllProducts();
+braceletArray($pdo->getBracelets());
+necklaceArray($pdo->getNecklaces());
+earringArray($pdo->getEarrings());
 
 require 'views/modal.php';
 require 'views/gallery.php';
 
-function braceletArray($products) {
+function braceletArray($bracelets) {
     echo '<script>';
     echo "var braceletArray = []; \n";
-    foreach ($products as $bracelet) {
-        if ($bracelet['product_type_id'] == 1) { //bracelet
-            echo "braceletArray.push(" . json_encode($bracelet) . "); \n";
-        }
+    foreach ($bracelets as $bracelet) {
+        echo "braceletArray.push(" . json_encode($bracelet) . "); \n";
     }
     echo '</script>';
 }
 
-function necklaceArray($products) {
+function necklaceArray($necklaces) {
     echo '<script>';
     echo "var necklaceArray = []; \n";
-    foreach ($products as $necklace) { //necklace
-        if ($necklace['product_type_id'] == 2) {
-            echo "necklaceArray.push(" . json_encode($necklace) . "); \n";
-        }
+    foreach ($necklaces as $necklace) { //necklace
+        echo "necklaceArray.push(" . json_encode($necklace) . "); \n";
     }
     echo '</script>';
 }
 
-function earringArray($products) {
+function earringArray($earrings) {
     echo '<script>';
     echo "var earringArray = []; \n";
-    foreach ($products as $earring) { //earring
-        if ($earring['product_type_id'] == 3) {
-            echo "earringArray.push(" . json_encode($earring) . "); \n";
-        }
+    foreach ($earrings as $earring) { //earring
+        echo "earringArray.push(" . json_encode($earring) . "); \n";
     }
     echo '</script>';
 }

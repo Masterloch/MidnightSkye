@@ -7,29 +7,39 @@
  */
 
 $type = $_GET['type'];
-$products = $pdo->getProducts();
-//select * products from products table.
-//assign selection to array
-//foreach array item, order them by priority
-//output each item in a card slot
+$products = $pdo->getAllProducts();
 productsToJSON($products, $type);
 
 require 'views/store.php';
-
 
 // ----------------------------------------------------------------------------
 // This function queries the database for relevent products 
 // and then echo's each one out as a JSON variable to the view
 // ----------------------------------------------------------------------------
 function productsToJSON($products, $type) {
-
     echo "<script>";
     echo "var product_array = []; \n"; //create product array
-    $i = 1;
-    foreach ($products as $product) {
-        if ($product['product_type_id'] == $type) {
-            echo "product_array.push(" . json_encode($product) . "); \n";
-        }
+    switch ($type) {
+        case 'Atlantean':
+            // foreach ($products as $product) {
+            //     if ($product['collection'] == $type) {
+            //         echo "product_array.push(" . json_encode($product) . "); \n";
+            //     }
+            // }        CHECK THAT THIS CODE WORKS 
+            break;
+        case 'Mermaids':
+            // foreach ($products as $product) {
+            //     if ($product['collection'] == $type) {
+            //         echo "product_array.push(" . json_encode($product) . "); \n";
+            //     }
+            // }
+            break;
+        default:
+            foreach ($products as $product) {
+                if ($product['product_type_id'] == $type) {
+                    echo "product_array.push(" . json_encode($product) . "); \n";
+                }
+            }
     }
     echo "</script>";
 }

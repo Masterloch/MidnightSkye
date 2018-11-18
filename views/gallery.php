@@ -10,9 +10,6 @@
     opacity: .35;
 }
 </style>
-<!-- <div class="text-center">
-    <img src="/core/images/image01.png"  data-toggle="modal" data-target="#exampleModalVertical" id="modalImage">
-</div> -->
 <div>
     <div class="pt-5 pb-5 mt-5 mb-5" id="background-div1">
         <div class="container pb-2" id="necklaceText">
@@ -62,7 +59,7 @@
     textArray.forEach(setStyles);
 
     function setStyles(item, index) {
-        document.getElementById(item).style.fontFamily = "Brush Script MT";
+        document.getElementById(item).style.fontFamily = "Tangerine";
         document.getElementById(item).style.fontSize = "5em";
     }
 
@@ -70,7 +67,8 @@
         document.getElementById("carouselContainer" + i).style.boxShadow = "0px 5px 10px #aaaaaa";
     }
     for(var i = 1; i < 4; i++) {
-        document.getElementById("background-div" + i).style.backgroundColor = "#f8f9fa";
+//        document.getElementById("background-div" + i).style.backgroundColor = "#f8f9fa";
+        document.getElementById("background-div" + i).style.backgroundImage = "core/images/bannerImage.jpg";
     }
 
     necklaceArray.forEach(setImages);
@@ -109,16 +107,17 @@
         img.classList.add("img-fluid");
         img.classList.add("d-block");
         img.classList.add("modalImage");
-        img.setAttribute("id", item.name);
+        img.setAttribute("id", item.id);
         img.style.boxShadow = "0px 0px 10px #aaaaaa";
+        img.dataset.productName = item.name;
         carousel.appendChild(img);
     }
 
     $(function() {
         $('.modalImage').on('click tap', function(e) {
             $('#modalImageLink').attr('src', this.src);
-            $('#exampleModalVerticalLabel').text(this.id);
-            $('#modalProductLink').attr('href', '/product')
+            $('#exampleModalVerticalLabel').text($(this).data('product-name'));
+            $('#modalProductLink').attr('href', 'store/product?productID=' + this.id);
         });
     });
     

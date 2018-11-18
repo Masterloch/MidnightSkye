@@ -1,11 +1,18 @@
 <?php ?>
 
+<div class="container mt-5">
+    <div class="col-lg-12">
+        <p class="text-center" id="storeTitle" ></p>
+    </div>
+</div>
 <div class="container" id="product_container">
+    
 </div>
 
 <script>
     var container = document.getElementById("product_container");
 
+    setStoreTitle(product_array[0]); //pass in a single product to determine type
     product_array.forEach(populateProducts); //loops through each product passed into the page by controllers/store.php
     $(document).ready(wrapRows()); 
 
@@ -20,7 +27,7 @@
         card.classList.add("card");
 
         var img = document.createElement("IMG");        //Card image
-        img.src = "/core/images/image01.png";
+        img.src = item.image_path;
         img.classList.add("card-img-top");
         card.appendChild(img);
 
@@ -71,6 +78,7 @@
         div.appendChild(card);      //Append the card to the div
         container.appendChild(div); //Append the div to the page container
     };
+
     //This function wraps every 3 products in a new row tag for bootstrap formatting
     function wrapRows() {
         var divs = $("div#product_container > div");
@@ -78,6 +86,13 @@
             divs.slice(i, i+3).wrapAll("<div class='row'></div>");
         }
     };
+
+    function setStoreTitle(product) {
+        var type = product.product_name;
+        document.getElementById('storeTitle').innerHTML = type.charAt(0).toUpperCase() + type.slice(1) + 's';
+        document.getElementById('storeTitle').style.fontFamily = "Tangerine";
+        document.getElementById('storeTitle').style.fontSize = "4em";
+    }
 
     //This function enables bootstrap 4 tooltips on this page.  Tooltips have high performance impact
     $(function () {

@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#" class="btn btn-secondary" role="button" data-dismiss="modal" id="modalProductLink">View Product</a>
+                    <a href="" class="btn btn-secondary" role="button" id="modalProductLink">View Product</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>

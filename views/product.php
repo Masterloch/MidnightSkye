@@ -3,7 +3,7 @@
 <div class="container" id="product_container">
     <div class="row">
         <div class="col-md-12 col-lg-7 text-center">
-            <img src="/core/images/image01.png" class="img-fluid my-5"/>
+            <img src="/core/images/whoopsSheltie.gif" class="img-fluid my-5" id="productImage"/>
         </div>
         <div class="col-lg-5 my-5">
             <h2 id="productName"></h2>
@@ -18,5 +18,6 @@
     document.getElementById("productName").innerHTML = product.name;
     document.getElementById("productPrice").innerHTML = "$" + product.price;
     document.getElementById("productDescription").innerHTML = product.description;
+    document.getElementById("productImage").src = product.image_path;
 </script>
 
