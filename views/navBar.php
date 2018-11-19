@@ -44,7 +44,7 @@
                                 <a class="dropdown-item" href="/store?type=3">Earrings</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/store?type=Atlantean">Atlantean Talisman Collection</a>
-                                <a class="dropdown-item" href="/store?type=Mermaids">Mermaids & Goddesses</a>
+                                <a class="dropdown-item" href="/store?type=Mermaid">Mermaids & Goddesses</a>
                             </div>
                         </li>
                         <li class="nav-item vertical-divider d-none d-sm-block"><a class="nav-link" href="/schedule">Show Schedules & Awards</a></li>

@@ -88,10 +88,19 @@
     };
 
     function setStoreTitle(product) {
-        var type = product.product_name;
-        document.getElementById('storeTitle').innerHTML = type.charAt(0).toUpperCase() + type.slice(1) + 's';
-        document.getElementById('storeTitle').style.fontFamily = "Tangerine";
-        document.getElementById('storeTitle').style.fontSize = "4em";
+        console.log(product.collection);
+        if (product.collection == 'none') {
+            var type = product.product_name;
+            document.getElementById('storeTitle').innerHTML = type.charAt(0).toUpperCase() + type.slice(1) + 's';
+            document.getElementById('storeTitle').style.fontFamily = "Tangerine";
+            document.getElementById('storeTitle').style.fontSize = "4em";
+        }
+        else {
+            var type = product.collection;
+            document.getElementById('storeTitle').innerHTML = type.charAt(0).toUpperCase() + type.slice(1) + 's';
+            document.getElementById('storeTitle').style.fontFamily = "Tangerine";
+            document.getElementById('storeTitle').style.fontSize = "4em";
+        }
     }
 
     //This function enables bootstrap 4 tooltips on this page.  Tooltips have high performance impact

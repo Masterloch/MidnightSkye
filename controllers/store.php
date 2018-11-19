@@ -21,18 +21,18 @@ function productsToJSON($products, $type) {
     echo "var product_array = []; \n"; //create product array
     switch ($type) {
         case 'Atlantean':
-            // foreach ($products as $product) {
-            //     if ($product['collection'] == $type) {
-            //         echo "product_array.push(" . json_encode($product) . "); \n";
-            //     }
-            // }        CHECK THAT THIS CODE WORKS 
+             foreach ($products as $product) {
+                 if ($product['collection'] == $type) {
+                     echo "product_array.push(" . json_encode($product) . "); \n";
+                 }
+             } 
             break;
-        case 'Mermaids':
-            // foreach ($products as $product) {
-            //     if ($product['collection'] == $type) {
-            //         echo "product_array.push(" . json_encode($product) . "); \n";
-            //     }
-            // }
+        case 'Mermaid':
+             foreach ($products as $product) {
+                 if ($product['collection'] == $type) {
+                     echo "product_array.push(" . json_encode($product) . "); \n";
+                 }
+             }
             break;
         default:
             foreach ($products as $product) {

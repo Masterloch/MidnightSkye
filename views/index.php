@@ -45,10 +45,10 @@
     <div class="col-md-12">
         <div class="row jumbotron h-100">
             <div class="col-md-3 my-auto">
-                <img src="core/images/necklace01.jpg" class="img-fluid"/>
+                <a href="/store?type=3"><img src="core/images/earrings/octopus-earrings-red_orig.jpg" class="img-fluid"/></a>
             </div>
             <div class="col-md-3 my-auto">
-                <img src="core/images/necklace01.jpg" class="img-fluid"/>
+                <a href="/store?type=3"><img src="core/images/earrings/berry_basket_conch_earrings.jpg" class="img-fluid"/></a>
             </div>
             <div class="col-md-4 text-center my-auto">
                 <h1 class="display-4">Earrings</h1>
@@ -72,10 +72,10 @@
                 </p>
             </div>
             <div class="col-md-3 my-auto">
-                <img src="core/images/necklace01.jpg" class="img-fluid"/>
+                <a href="store?type=1"><img src="core/images/bracelets/etched_aqua_and_freshwater_pearl_bracelet.jpg" class="img-fluid"/></a>
             </div>
             <div class="col-md-3 my-auto">
-                <img src="core/images/necklace01.jpg" class="img-fluid"/>
+                <a href="store?type=1"><img src="core/images/bracelets/ivory_conch_bracelet.jpg" class="img-fluid"/></a>
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
         <div class="row jumbotron h-100">
             <div class="col-md-4 my-auto">
                 <img src="core/images/necklace01.jpg" class="img-fluid"/>
-                <img src="core/images/necklace01.jpg" class="mt-5 bottom-0 img-fluid"/>
+                <img src="core/images/bracelets/etched_aqua_and_freshwater_pearl_bracelet.jpg" class="mt-5 bottom-0 img-fluid"/>
             </div>
             <div class="col-md-4 text-center my-auto">
                 <h1 class="display-4">Gallery</h1>
@@ -96,7 +96,7 @@
                 </p>
             </div>
             <div class="col-md-4 my-auto">
-                <img src="core/images/necklace01.jpg" class="img-fluid"/>
+                <img src="core/images/earrings/octopus-earrings-red_orig.jpg" class="img-fluid"/>
                 <img src="core/images/necklace01.jpg" class="mt-5 img-fluid"/>
             </div>
         </div>
