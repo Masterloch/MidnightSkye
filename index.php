@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
@@ -10,6 +11,9 @@ $router = new Router();
 require 'core/router/routes.php';
 require 'core/router/request.php';
 $request = new Request();
+
+require 'core/cart/cart.php';
+$cart = Cart::getInstance();
 
 $uri = $request->uri();
 $uri = $router->direct($uri);

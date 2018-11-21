@@ -9,6 +9,6 @@ require 'views/product.php';
 
 function singleProductToJSON($product) {
     echo "<script>";
-    echo "var product = " . json_encode($product[0]) . "\n";
+    echo "var product = " . json_encode($product) . "\n";
     echo "</script>";
 }

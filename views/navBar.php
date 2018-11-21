@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine:b"> </link>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine:b" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <style type="text/css">
         .vertical-divider{
              border-right: 2px solid rgba(192,192,192,0.2);
@@ -17,6 +18,14 @@
             top: 0;
             z-index: 1000;
             width: 100%;
+        }
+        #cartGlyph {
+            color: #000000 !important;
+            text-decoration: none !important
+        }
+        #cartGlyph:hover {
+            color: #000000 !important;
+            text-decoration: none !important
         }
     </style>
 </head>
@@ -51,6 +60,9 @@
                         <li class="nav-item vertical-divider d-none d-sm-block"><a class="nav-link" href="/contact">Contact Me</a></li>
                         <li class="nav-item vertical-divider d-none d-sm-block"><a class="nav-link" href="/gallery">Gallery</a></li>
                     </ul>
+                </div>  
+                <div>         
+                    <a id="cartGlyph" href="/cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
                 </div>
             </div>
         </nav>
@@ -61,7 +73,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
 
-        document.getElementById('websiteName').style.backgroundImage = "url('core/images/bannerImage.jpg')";
+        document.getElementById('websiteName').style.backgroundImage = "url('../core/images/bannerImage.jpg')";
         
         $(document).ready(function() {
             //

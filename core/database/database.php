@@ -50,7 +50,7 @@ class Database {
             $statement = $this->pdo->prepare("select * from product where id = $productID");
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-            return $results;
+            return $results[0];
         }
     }
 
