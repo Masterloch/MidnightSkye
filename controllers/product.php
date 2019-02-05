@@ -2,7 +2,6 @@
 
 $productID = $_GET['productID'];
 
-
 singleProductToJSON($pdo->getSingleProduct($productID));
 
 require 'views/product.php';

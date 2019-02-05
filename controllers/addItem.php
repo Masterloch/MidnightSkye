@@ -4,11 +4,9 @@ $productID = $_GET['product'];
 $quantity = $_GET['quantity'];
 
 $product = $pdo->getSingleProduct($productID);
-// $cart->addItem($product, $quantity);
-// $cart->updateCart();
+
 singleProductToJSON($product, $quantity);
 cartToJSON($_SESSION['cart']);
-// print_r($_SESSION['cart']);
 
 require 'views/addItem.php';
 

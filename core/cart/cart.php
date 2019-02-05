@@ -20,14 +20,23 @@ class Cart {
     }
 
     public function getItems() {
-        print_r(self::$items);
+        return self::$items;
     }
 
     public function addItem($product, $quantity) {
-        $product['quantity'] = $quantity;
-        array_push(self::$items, $product);
-    }
-    public function updateCart() {
-        $_SESSION['cart'] = self::$items;
+        $itemInCart = False;
+
+        foreach (self::$items as $key => $value) {                  //Search each item in the cart
+            if (self::$items[$key]['id'] == $product['id']) {       //If we find the product already in the cart, 
+                $itemInCart = True;                                 //update the quantity of the item.
+                self::$items[$key]['quantity'] += $quantity;
+            }
+        }
+        if ($itemInCart == False) {                 //If we search all products in the cart and don't find
+            $product['quantity'] = $quantity;       //the item in the cart, add to the cart
+            array_push(self::$items, $product);     
+        }
+
+        $_SESSION['cart'] = self::$items;           //After we add the item to the cart, add the items to the session.
     }
 }

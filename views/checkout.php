@@ -1,3 +1,4 @@
 <?php 
 
-echo 'reee';
+unset($_SESSION['cart']);
+echo 'Cleared cart.';

@@ -17,5 +17,6 @@ $router->define([
     'store/product' => 'controllers/product.php',
     'cart' => 'controllers/cart.php',
     'cart/added' => 'controllers/addItem.php',
+    'cart/addItemToCart' => 'core/scripts/addItemToCart.php',
     'checkout' => 'controllers/checkout.php'
 ]);

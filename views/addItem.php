@@ -13,15 +13,41 @@
                     <a class="btn btn-primary btn-lg" href="/checkout" role="button">Checkout Now</a>
                 </p>
             </div>
-            <div class="col-md-4 text-center my-auto mx-auto" id="cartDisplay">
+
+            <div class="col-md-5 text-center my-auto mx-auto" id="cartDisplay">
                 <h1 class="display-4">Cart</h1>
-                <p class="lead" id="itemName"></p>
-                <div id="cartItems">
+                <div class="row" id="cartHeader">
+                    <div class="col-6 clearfix" id="cartName">
+                        <p class="lead float-left w-100" style="border-bottom: 1px solid black">
+                            <strong><span class="float-left">Item</span></strong>
+                        </p>
+                    </div>
+                    <div class="col-2" id="cartQty" style="border-bottom: 1px solid black">
+                        <p class="lead" style="border-bottom: 1px solid black">
+                            <strong>Qty</strong>
+                        </p>
+                    </div>
+                    <div class="col-2" id="cartPrice" style="border-bottom: 1px solid black">
+                        <p class="lead" style="border-bottom: 1px solid black">
+                            <strong>Price</strong>
+                        </p>
+                    </div>
+                    <div class="col-2" id="cartTotal" style="border-bottom: 1px solid black">
+                        <p class="lead" style="border-bottom: 1px solid black">
+                            <strong>Total</strong>
+                        </p>
+                    </div>
                 </div>
-                <p class="lead">
+                    <p class="lead float-right" id="cartFinalTotal">
+                    </p>
+                <div>
+                </div>
+                
+                <p class="lead mt-5">
                     <a class="btn btn-primary btn-lg" href="/cart" role="button">View Cart</a>
                 </p>
             </div>
+            
         </div>
     </div>
 </div>
@@ -30,10 +56,19 @@
     document.getElementById('itemPicture').style.boxShadow = "0px 10px 25px #000000";
     document.getElementById('itemPrice').style.fontWeight = "700";
     document.getElementById('itemQty').style.fontWeight = "700";
+    document.getElementById('cartFinalTotal').style.fontWeight = "700";
     document.getElementById('cartDisplay').style.backgroundColor = "#FFFFFF";
-    var cartRows = document.getElementById('cartItems');
+    var cartName = document.getElementById('cartName');
+    var cartQty = document.getElementById('cartQty');
+    var cartPrice = document.getElementById('cartPrice');
+    var cartTotal = document.getElementById('cartTotal');
+    var cartFinalTotal = document.getElementById('cartFinalTotal');
+    var total = 0;
 
     cartArray.forEach(cartDisplay);
+    var cartTotal = document.createTextNode("Total: \xa0\xa0\xa0\xa0$" + total); 
+    cartFinalTotal.appendChild(cartTotal);
+
 
     $('#itemName').text(product.name);
     $('#itemQty').text("\nQuantity: " + product.quantity);
@@ -41,14 +76,35 @@
     $('#itemPicture').attr("src", ".." + product.image_path);
 
     function cartDisplay(item, index) {
-        var cartImage = document.createElement("IMG");           
-        var cartQty = document.createTextNode("View Product");   
-        var cartPrice = document.createTextNode("View Product");
-//        itemButton.value = item.;
-//        itemButton.name = "productID";
-//        itemButton.type = "submit";
-//        itemButton.classList.add("btn");                     
-//        itemButton.classList.add("btn-secondary");
-//        itemButton.appendChild(cartRows);
+        total += item.quantity * item.price;
+        var paragraphName = document.createElement("P");
+        paragraphName.style.clear = "left";  
+        paragraphName.style.whiteSpace = "nowrap";
+        paragraphName.style.overflow = "hidden";
+        paragraphName.style.textOverflow = "ellipsis";
+        paragraphName.title = item.name;
+        paragraphName.dataset.toggle = "tooltip";
+        paragraphName.dataset.placement = "left";
+        var paragraphQty = document.createElement("P");
+        var paragraphPrice = document.createElement("P");
+        var paragraphTotal = document.createElement("P");
+        var cartItemName = document.createTextNode(item.name);     
+        var cartItemQty = document.createTextNode("x " + item.quantity);  
+        var cartItemPrice = document.createTextNode("$" + item.price);
+        var cartItemTotal = document.createTextNode("$" + item.quantity * item.price);
+
+        paragraphName.appendChild(cartItemName);
+        paragraphQty.appendChild(cartItemQty);
+        paragraphPrice.appendChild(cartItemPrice);
+        paragraphTotal.appendChild(cartItemTotal);
+
+        cartName.appendChild(paragraphName);
+        cartQty.appendChild(paragraphQty);
+        cartPrice.appendChild(paragraphPrice);
+        cartTotal.appendChild(paragraphTotal);
     }
+    
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
